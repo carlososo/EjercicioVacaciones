@@ -28,3 +28,49 @@ function convertExchange(cantidad) {
     return adena.format(cantidad);
 }
 console.log(convertExchange(100000000000));
+
+
+function MatrixAdd(matrixOne, matrixTwo){
+    let matrixRes=[];
+    if(matrixOne.length >matrixTwo.length){
+
+        for(let i =0; i<matrixOne.length;i++){
+        
+        
+            for (let j=0; j<matrixTwo.length;j++){
+                if(i === j ){
+                matrixOne[i] = matrixOne[i]+matrixTwo[j]
+                
+            }
+        }
+    }
+    return matrixOne;
+}else if( matrixTwo.length >matrixOne.length){
+    for(let i =0; i<matrixTwo.length;i++){
+        
+        
+        for (let j=0; j<matrixOne.length;j++){
+            if(i === j ){
+            matrixTwo[i] = matrixOne[i]+matrixTwo[j]
+            
+        }
+    }
+}
+return matrixTwo;
+}else if(matrixOne.length== matrixTwo.length){
+   
+    for(let i=0; i<matrixOne.length;i++){
+        for(let j=0;j<matrixTwo.length;j++){
+            if(i === j ){
+                let add = matrixOne[i]+matrixTwo[j]
+                matrixRes.push(add);
+            }
+        }
+    }
+    return matrixRes;
+}
+
+
+}
+
+console.log(MatrixAdd([1,0,2,3,4,13],[3,5,6,7,8,13]))
