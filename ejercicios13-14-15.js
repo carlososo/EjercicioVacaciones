@@ -5,21 +5,37 @@ Escriba una función de JavaScript para eliminar. Valores 'nulo', '0', '""', 'fa
 Escriba una función de JavaScript para ordenar la siguiente matriz de objetos por valor de título. let ibrary = [ { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254}, { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264}, { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245} ];
 
  */
-
  function vectorDifferences(vectorOne, vectorTwo){
-   let vectorRes=[]
-   vectorOne.forEach((element) => {
-      vectorTwo.forEach(function (elemento){
-         console.log(element);
-         console.log(elemento)
-         if(elemento !=element){
-            vectorRes.push(element);
-         }
-      })
-   });
-   
-return vectorRes;
 
- }
+   let difference = vectorOne
+   .filter(number => !vectorTwo.includes(number))
+   .concat(vectorTwo.filter(numberTwo => !vectorOne.includes(numberTwo)));
 
- console.log(vectorDifferences([1, 2, 3], [100, 2, 1, 10]));
+   return difference;
+}
+
+console.log("los numeros diferentes entre los areglos son",vectorDifferences([1, 2, 3], [100, 2, 1, 10]));
+
+function removeFalsies(vector){
+   let vectorRes = vector
+   .filter(element =>{
+    
+   !element ==NaN || !element==0 || !element ==false || !element ==null || !element=="";
+      return element;
+   })
+   return vectorRes
+}
+
+console.log(" el arreglo sin falsies es:",removeFalsies([NaN, 0, 15, false, -22, '',undefined, 47, null]))
+
+let library = [ { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254}, { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264}, { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245} ];
+
+function ordenarTitulo(libros){
+   libros.sort((a,b)=>{
+      return b.title - a.title;
+   })
+   return libros
+}
+
+console.log(ordenarTitulo(library));
+
