@@ -24,6 +24,14 @@ function alphabeticalOrder(cadena){
 console.log(alphabeticalOrder("webmaster"));
 /*Escriba una función de JavaScript que acepte una cadena como parámetro y busque la palabra más larga dentro de la cadena. Ej. largeWord("Web Development Tutorial") resultado ---> 'Development'  */
 
-function LongestWord(String){
+function longestWord(String){
+    let cadena = String.split(" ") 
+    cadena = cadena.sort((a,b)=>{
+        return a.length-b.length;
+    })
+    const resultado = cadena.pop();
+    return resultado;
     
 }
+
+console.log(longestWord("Web Development Tutorial"))
